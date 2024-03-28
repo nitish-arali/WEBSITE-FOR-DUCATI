@@ -90,59 +90,56 @@
         margin: 0; /* Remove default margin */
       }
     </style>
-    <script>
-      function validateForm() {
-        var username = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
-        var checkbox = document.getElementById("verificationCheckbox");
-        var checkboxError = document.getElementById("checkboxError");
-        //check whether the username is empty or not
-        if (username == "") {
-          alert("Username is mandatory");
-          return false;
-        }
-        // Check if password is empty
-        if (password == "") {
-          alert("Password is mandatory");
-          return false;
-        }
+    
+<script>function validateForm() {
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+  var checkbox = document.getElementById("verificationCheckbox");
+  
+  // Check if username is empty
+  if (username === "") {
+      alert("Username is mandatory");
+      return false;
+  }
 
-        // Check if username is CORRECT
-        if (username !== "NITHIN22") {
-          alert("Username is incorrect");
-          return false;
-        }
+  // Check if password is empty
+  if (password === "") {
+      alert("Password is mandatory");
+      return false;
+  }
 
-        // Check if password is matching
-        if (password !== "12345678") {
-          alert("Password does not matched");
-          return false;
-        }
+  // Check if username and password are correct
+  if (username !== "NITHIN22" || password !== "12345678") {
+      alert("Incorrect Username or Password");
+      return false;
+  }
 
-        // Check if username contains only letters and numbers
-        var usernamePattern = /^[a-zA-Z0-9]+$/;
-        if (!username.match(usernamePattern)) {
-          alert("Username can only contain letters and numbers");
-          return false;
-        }
+  // Check if username contains only letters and numbers
+  var usernamePattern = /^[a-zA-Z0-9]+$/;
+  if (!username.match(usernamePattern)) {
+      alert("Username can only contain letters and numbers");
+      return false;
+  }
 
-        // Check if password meets minimum length requirement (e.g., 8 characters)
-        if (password.length < 8) {
-          alert("Password must be at least 8 characters long");
-          return false;
-        }
-        if (!checkbox.checked) {
-          checkboxError.style.display = "block";
-          alert("Please confirm");
-          return false; // Prevent form submission
-        } else {
-          checkboxError.style.display = "none";
-          return true; // Allow form submission
-        }
-        // If all validations pass, return true
-      }
-    </script>
+  // Check if password meets minimum length requirement
+  if (password.length < 8) {
+      alert("Password must be at least 8 characters long");
+      return false;
+  }
 
+  // Check if the checkbox is checked
+  if (!checkbox.checked) {
+      alert("Please confirm");
+      return false;
+  }
+
+  // If all validations pass, show success message and redirect
+  
+  window.location.href = "welcome.html";
+  return false; // Prevent form submission
+}
+
+</script>
     <script>
       // Set cursor position in password input box
       document.addEventListener("DOMContentLoaded", function () {
@@ -164,16 +161,11 @@
           usernameInput.value.length
         ); // Set cursor position to the end
       });
-    </script>
+    </script>    
   </head>
   <body>
     <div class="login">
-      <form
-        name="myform"
-        onsubmit="return validateForm()"
-        action="welcome.html"
-        method="post"
-      >
+      <form name="myform" onsubmit="return validateForm()" method="post">
         <h1>LOGIN</h1>
         <br />
         <label for="username">USERNAME:</label>
@@ -203,7 +195,9 @@
         </div>
         <br />
         <br />
-        <button type="submit" value="SUBMIT">SUBMIT</button>
+        <button type="submit" value="SUBMIT">
+          LOGIN
+        </button>
       </form>
     </div>
   </body>
