@@ -1,0 +1,941 @@
+<html>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<title>DUCATI HOME PAGE </title>
+<style>
+.navbar {
+  background-color:black;
+  overflow: hidden;
+}
+
+.nav-link {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 10px 12px;
+ color:white;
+  text-decoration: none; /* Remove default underline */
+  font-weight: bold; /* Make the font bold */
+  text-transform: uppercase; /* Convert text to uppercase */
+
+}
+.active {
+  background-color: red;
+  color: white;
+}
+.navbar a:hover {
+    background-color:black;
+    color: white;
+}
+body{
+background:url("logo.png");
+backdrop-filter:brightness(20%);
+}
+
+
+
+
+/* Styling for the main heading */
+.main-heading {
+  font-family: 'Montserrat', sans-serif; /* Using Montserrat font */
+  font-size: 48px; /* Adjust font size as needed */
+  color: transparent; /* Setting font color to orange (you can choose any color you like) */
+  text-transform: uppercase; /* Convert text to uppercase */
+  letter-spacing: 2px; /* Add letter spacing for better readability */
+  margin-bottom: 20px; /* Add some bottom margin for spacing */
+  text-align:center;
+  background-image:url("ducati.png");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-clip:text;
+}
+
+/* Styling for the main heading */
+.text{
+    background-color: red;
+    padding: 0px;
+    text-align: center;
+   
+}
+
+ #imageContainer {
+      text-align: center;
+    }
+    
+#imageContainer img {
+ width: 600px; /* Adjust as needed */
+  height: auto;
+  margin: 10px;
+}
+
+#descriptionBox {
+    margin-top: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: white;
+}
+
+
+ .homepage {
+    font-family: 'Arial', sans-serif; /* Fallback font */
+    text-align: center;
+color:white;
+  }
+  
+  .homepage h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif; /* Attractive font */
+  }
+  
+  .homepage p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  /* Styling the contact section */
+  .contact {
+    font-family: 'Arial', sans-serif; /* Fallback font */
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .contact h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif; /* Attractive font */
+    color:white;
+  }
+  
+  .contact p {
+    font-size: 16px;
+    margin-bottom: 10px;
+color:white;
+  }
+
+a{
+color:red;
+}
+img{
+width:300px;
+height:300px;
+}
+.image-wrapper {
+  display: flex; /* Use flexbox layout */
+  justify-content: center; /* Center content horizontally */
+}
+
+.image-wrapper img {
+  border: 4px solid #000; /* Border style */
+  margin: 0 10px; /* Add some margin between images */
+  max-width: 100%; /* Ensure images don't exceed container width */
+  height: auto; /* Maintain aspect ratio */
+}
+section {
+  text-align: center;
+}
+
+.bikes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.bike {
+  margin: 20px;
+  border: 2px solid #333;
+  padding: 10px;
+  border-radius: 8px;
+  width: 250px;
+}
+
+.bike img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.bike-name {
+  margin-top: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: white;
+}
+.champions{
+  text-align: center;
+}
+
+.bikers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.bikers img {
+  width: 100%;
+  border-radius: 8px;
+}
+.biker-name {
+  margin-top: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: white;
+}
+.racer{
+  margin: 20px;
+  border: 2px solid #333;
+  padding: 10px;
+  border-radius: 8px;
+  width: 300px;
+}
+ .racer {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.5s;
+
+  }
+
+  .racer:hover {
+    transform: scale(1.1);
+  }
+
+  .racer .biker-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    display: none;
+    width: 100%;
+    text-align: center;
+    transition: opacity 0.5s, visibility 0.5s;
+  }
+
+  .racer:hover .biker-name {
+    display: block;
+  }
+
+  .racer.clicked .biker-name {
+    display: block;
+  }
+
+  .racer.clicked img {
+    display: none;
+  }
+  footer {
+    position: auto;
+    bottom: 0;
+    width: 100%;
+
+    color: white; /* Text color of the footer */
+    text-align: center; /* Center-align text */
+    font-weight: bold; /* Bold font */
+    padding: -5px 0; /* Padding for top and bottom */
+   text-transform:uppercase;
+  }
+  .nbikes-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 20px 0;
+    position: relative;
+  }
+
+  .nbikes {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    overflow-x: hidden;
+  }
+
+  .nbike {
+    width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.5s;
+  }
+
+  .nbike:hover {
+    transform: scale(1.1);
+  }
+
+  .nbike img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s;
+  }
+
+  .nbike .nbike-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    transform: translateY(100%);
+    transition: transform 0.5s;
+  }
+
+  .nbike:hover .nbike-name {
+    transform: translateY(0);
+  }
+
+  .arrow-container {
+    position: relative;
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+  }
+
+  .arrow:hover {
+    background-color: #999;
+  }
+
+  .arrow-left {
+    left: 10px;
+  }
+
+  .arrow-right {
+    right: 10px;
+  }
+   /* Transparent scrollbar */
+  .nbikes-container::-webkit-scrollbar {
+    width: 10px;
+    background-color: transparent;
+  }
+
+  .nbikes-container::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+  }
+.v4 {
+  text-align: center;
+}
+.bike {
+  display: inline-block;
+  margin: 20px;
+}
+
+.card {
+  width: 250px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.card .front, .card .back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 0.5s;
+}
+
+.card .front {
+  transform: rotateY(0deg);
+}
+
+.card .back {
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif; /* Example font family */
+  font-size: 20px; /* Example font size */
+  color: white; /* Example text color */
+}
+
+
+
+.bike:hover .card .front {
+  transform: rotateY(-180deg);
+}
+
+.bike:hover .card .back {
+  transform: rotateY(0deg);
+}
+
+  .road-bikes {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .bike {
+    display: inline-block;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .bike:hover {
+    transform: translateY(-5px);
+  }
+  
+  .bike img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .bike-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .bike-description {
+    color: #555;
+  }
+ .dirt-bikes {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .bike {
+    display: inline-block;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .bike:hover {
+    transform: translateY(-5px);
+  }
+  
+  .bike img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .bike-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .bike-description {
+    color: #555;
+  }
+/*CSS FOR ADV */
+  .adventure-bikes {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .ADVS {
+    display: inline-block;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .ADVS:hover {
+    transform: translateY(-5px);
+  }
+  
+  .ADVS img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .ADVS-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .ADVS-description {
+    color: #555;
+  }
+.buy-now-btn {
+    background-color:red;
+    color: white;
+    border: none;
+    border-radius: 30px; /* Half of 60px (button height) */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buy-now-btn:hover {
+    background-color: black;
+}
+
+.register-id {
+    text-align: center;
+}
+
+.image-frame {
+    max-width: 800px;
+    margin: 0 auto 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.image-frame img {
+    width: 100%;
+    height: auto;
+}
+
+.register-button {
+    margin-bottom: 20px;
+}
+
+.register-button a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.register-button a:hover {
+    background-color: #0056b3;
+}
+
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
+  <script>
+        function showImage(imageSrc) {
+            var imageContainer = document.getElementById("imageContainer");
+            var image = new Image();
+            image.src = imageSrc;
+            imageContainer.innerHTML = ""; // Clear previous content
+            imageContainer.appendChild(image);
+        }
+  </script>
+<script>
+  const bikeImages = document.querySelectorAll('.bikes img');
+  bikeImages.forEach(img => {
+    img.addEventListener('click', function() {
+      alert(this.alt);
+    });
+  });
+  </script>
+    <script>
+        const homeLink = document.getElementById('homeLink');
+ // Add a click event listener
+            homeLink.addEventListener('click', function(event) {
+          // Prevent the default action (navigating to the specified URL)
+           event.preventDefault();
+    // Perform actions here, for example, you can display a message
+    alert('You clicked the Home button!');
+  });
+</script>
+<script>
+function activateLink(link) {
+  // Remove the 'active' class from all links
+  var links = document.querySelectorAll('.nav-link');
+  links.forEach(function(item) {
+    item.classList.remove('active');
+  });
+  // Add the 'active' class to the clicked link
+  link.classList.add('active');
+}
+</script>
+<script>
+function showImageAndDescription(imageSrc, description) {
+  // Show the image in the image container
+  var imageContainer = document.getElementById('imageContainer');
+  imageContainer.innerHTML = '<img src="' + imageSrc + '" alt="Image">';
+
+  // Show the description in the description box
+  var descriptionBox = document.getElementById('descriptionBox');
+  descriptionBox.textContent = description;
+}
+</script>
+<script>
+function activateLink(link) {
+  // Remove the 'active' class from all links
+  var links = document.querySelectorAll('.nav-link');
+  links.forEach(function(item) {
+    item.classList.remove('active');
+  });
+  
+  // Add the 'active' class to the clicked link
+  link.classList.add('active');
+}
+</script>
+
+</head>
+<header class="text">
+  <center><h1 class="main-heading">DUCATI</h1></center>
+</header>
+
+<body>
+  <div class="navbar">
+  <a href="#new" id="homeLink" class="nav-link active" onclick="activateLink(this)">Home</a>
+  <a href="#enduro" class="nav-link">Mountain bikes</a>
+  <a href="#roadbikes" class="nav-link">Road bikes</a>
+  <a href="#adventure" class="nav-link">Adventure bikes</a>
+  <a href="#track" class="nav-link" >Track bikes</a>
+  <a href="#add" class="nav-link">Accessories</a>
+  <a href="#v4" class="nav-link">v4 beast</a>
+  <a href="#champions" class="nav-link">Champions</a>
+<a href="#register" class="nav-link">register </a>
+ <a href="#about" class="nav-link">Aboutus</a>
+
+</div>
+<div id="imageContainer"></div>
+<div id="descriptionBox"></div>
+
+<section class="new" id="new">
+<h1  style="
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif; 
+    color:white;"><center>NEW RELEASE !!!</center></h1><br>
+<div class="arrow-container">
+  <div class="nbikes-container">
+    <div class="arrow arrow-left" onclick="scrollLeft()">&#10094;</div>
+    <div class="nbikes">
+      <div class="nbike" onclick="toggleDescription(this)">
+        <img src="V4R.jpg" alt="DUCATI V4R">
+        <div class="nbike-name">DUCATI V4R<br>Advanced electronics, and aerodynamic design, designed for racing enthusiasts and track performance.</div>
+      </div>
+      <div class="nbike" onclick="toggleDescription(this)">
+        <img src="hyper.jpg" alt="HYPER MOTORAD 950">
+        <div class="nbike-name">HYPER MOTORAD 950<br>The Hypermotard 950 is a versatile and agile motorcycle renowned for its spirited performance, thrilling canyon carving adventures.</div>
+      </div>
+      <div class="nbike" onclick="toggleDescription(this)">
+        <img src="street.jpg" alt="STREETFIGHTER V4">
+        <div class="nbike-name">STREETFIGHTER V4<br>Featuring aggressive styling, a powerful V4 engine derived from the Panigale, and advanced electronics, delivering exhilarating performance on both road and track.</div>
+      </div>
+      <div class="nbike" onclick="toggleDescription(this)">
+        <img src="diavel.jpg" alt="DIAVEL 1260">
+        <div class="nbike-name">DIAVEL 1260<br>The Diavel 1260 is a muscular and sophisticated cruiser motorcycle from Ducati.</div>
+      </div>
+      <div class="nbike" onclick="toggleDescription(this)">
+        <img src="monster.jpg" alt="DUCATI MONSTER 1200">
+        <div class="nbike-name">DUCATI MONSTER 1200<br>Offering riders an exhilarating riding experience both on urban streets and winding roads.</div>
+      </div>
+      <div class="nbike" onclick="toggleDescription(this)">
+        <img src="desert.jpg" alt="DUCATI DESERT X">
+        <div class="nbike-name">DUCATI DESERT X<br>The Ducati Desert X is a concept adventure motorcycle inspired by the spirit of exploration.</div>
+      </div>
+    </div>
+    <div class="arrow arrow-right" onclick="scrollRight()">&#10095;</div>
+  </div>
+</div>
+<section class="dirt-bikes" id="enduro">
+<h1  style="
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif; 
+    color:white;"><center>MOUNTAIN BIKES</center></h1><br>
+  <div class="bike">
+    <img src="moto.jpg" alt="Ducati Dirt Bike 1">
+    <div class="bike-name">Ducati Hypermotard 950</div>
+    <div class="bike-description">The Ducati Hypermotard 950 is a versatile and agile motorcycle renowned for its spirited performance and thrilling adventures on dirt tracks and city streets.</div>
+  </div>
+  
+  <div class="bike">
+    <img src="enduro.jpg" alt="Ducati Dirt Bike 2">
+    <div class="bike-name">Ducati Multistrada 1260 Enduro</div>
+    <div class="bike-description">The Ducati Multistrada 1260 Enduro is designed for off-road adventures, combining comfort, performance, and technology to tackle any terrain with confidence.</div>
+  </div>
+  
+  <div class="bike">
+    <img src="x.jpg" alt="Ducati Dirt Bike 3">
+    <div class="bike-name">Ducati DesertX</div>
+    <div class="bike-description">The Ducati DesertX is a concept adventure motorcycle inspired by the spirit of exploration, designed to conquer the toughest off-road challenges with ease.</div>
+  </div>
+  
+  <div class="bike">
+    <img src="sled.jpg" alt="Ducati Dirt Bike 4">
+    <div class="bike-name">Ducati Scrambler Desert Sled</div>
+    <div class="bike-description">The Ducati Scrambler Desert Sled is a rugged and versatile off-road motorcycle, featuring a retro-inspired design and capable performance for off-road adventures.</div>
+  </div>
+</section>
+<section class="road-bikes" id="roadbikes">
+<h1 style="font-size: 30px; margin-bottom: 20px; font-family: 'Montserrat', sans-serif; color:white;">
+    <center>ROAD LEGAL BIKES</center>
+  </h1>
+  <div class="bike">
+    <img src="797.jpg" alt="Ducati Bike 1">
+    <div class="bike-name">Ducati Monster 797</div>
+    <div class="bike-description">The Ducati Monster 797 is the entrance to the Ducati world and its values, style, sophistication, and performance.</div>
+  </div>
+  
+  <div class="bike">
+    <img src="scram.jpg" alt="Ducati Bike 2">
+    <div class="bike-name">Ducati Scrambler Icon</div>
+    <div class="bike-description">The Ducati Scrambler Icon is the starting point from which to express yourself. It is characterised by its comfortable riding position and steel teardrop tank.</div>
+  </div>
+  
+  <div class="bike">
+    <img src="v2.jpg" alt="Ducati Bike 3">
+    <div class="bike-name">Ducati Panigale V2</div>
+    <div class="bike-description">The Ducati Panigale V2 represents the maximum expression of Ducati’s racing DNA, offering stunning performance on both the road and track.</div>
+  </div>
+  
+  <div class="bike">
+    <img src="multiv4.PNG" alt="Ducati Bike 4">
+    <div class="bike-name">Ducati Multistrada V4</div>
+    <div class="bike-description">The Ducati Multistrada V4 is a new chapter in the adventure world, representing the fourth generation of Multistrada bikes.</div>
+  </div>
+</section>
+//adv
+<section class="adventure-bikes" id="adventure">
+<h1 style="font-size: 30px; margin-bottom: 20px; font-family: 'Montserrat', sans-serif; color:white;">
+    <center>ADVENTURE BIKES</center>
+  </h1>
+  <div class="ADVS">
+    <img src="MULTIV4.jpg" alt="Ducati Adventure Bike 1">
+    <div class="ADVS-name">Ducati Multistrada V4</div>
+    <div class="ADVS-description">The Ducati Multistrada V4 is a high-performance adventure touring motorcycle, featuring a powerful V4 engine and advanced electronics for ultimate versatility on and off-road.</div>
+  </div>
+  
+  <div class="ADVS">
+    <img src="multi.jpg" alt="Ducati Adventure Bike 2">
+    <div class="ADVS-name">Ducati Multistrada 950</div>
+    <div class="ADVS-description">The Ducati Multistrada 950 is a versatile adventure bike designed for both urban commuting and long-distance touring, offering comfort, performance, and technology in one package.</div>
+  </div>
+  
+  <div class="ADVS">
+    <img src="x.jpg" alt="Ducati Adventure Bike 3">
+    <div class="ADVS-name">Ducati DesertX</div>
+    <div class="ADVS-description">The Ducati DesertX is a concept adventure motorcycle inspired by the spirit of exploration, designed to conquer the toughest off-road challenges with ease.</div>
+  </div>
+</section>
+<section class="track-bikes" id="track">
+<h1  style="
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif; 
+    color:white;"><center>TRACK BIKES</center></h1><br>
+  <div class="bike">
+    <img src="track1.jpg" alt="Ducati Panigale V4R">
+    <div class="bike-name">Ducati Panigale V4R</div>
+    <div class="bike-description">The Ducati Panigale V4R is a track-focused superbike designed to deliver exceptional performance on the racetrack. With its powerful engine, advanced electronics, and aerodynamic design, the Panigale V4R offers unmatched speed, agility, and precision for adrenaline-fueled racing experiences.</div>
+</div>
+
+<div class="bike">
+    <img src="track2.jpg" alt="Ducati 1299 Panigale R Final Edition">
+    <div class="bike-name">Ducati 1299 Panigale R Final Edition</div>
+    <div class="bike-description">The Ducati 1299 Panigale R Final Edition is the last iteration of the legendary 1299 Panigale series. Built for ultimate performance and exclusivity, this track weapon features a potent engine, race-inspired components.</div>
+</div>
+
+<div class="bike">
+    <img src="track3.jpg" alt="Ducati 1199 Panigale R">
+    <div class="bike-name">Ducati 1199 Panigale R</div>
+    <div class="bike-description">The Ducati 1199 Panigale R is a high-performance track machine engineered for adrenaline-pumping rides. With its lightweight chassis, powerful engine, and cutting-edge technology, the 1199 Panigale R offers unmatched agility, speed, and precision for riders seeking the ultimate thrill on the racetrack.</div>
+</div>
+
+<div class="bike">
+    <img src="track4.jpg" alt="Ducati 848 Evo Corse SE">
+    <div class="bike-name">Ducati 848 Evo Corse SE</div>
+    <div class="bike-description">The Ducati 848 Evo Corse SE is a track-oriented version of the popular 848 Evo, featuring enhanced performance and styling. With its sporty design, race-inspired components, and exhilarating performance, the 848 Evo Corse SE delivers an adrenaline-fueled riding experience tailored for the racetrack.</div>
+</div>
+</section>
+//accessories
+<section class="accessories" id="add">
+<h1  style="
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif; 
+    color:white;"><center>ACCESSORIES</center></h1><br>
+  <div class="bike">
+    <img src="termi.jpg" alt="Ducati Panigale V4R">
+    <div class="bike-name">Termignoni Exhuast</div>
+    <button class="buy-now-btn">Buy Now</button>
+</div>
+
+<div class="bike">
+    <img src="clear.jpg" alt="Ducati 1299 Panigale R Final Edition">
+    <div class="bike-name">Clear Clutch Case</div>
+    <button class="buy-now-btn">Buy Now</button>
+</div>
+
+<div class="bike">
+    <img src="bmc.jpg" alt="Ducati 1199 Panigale R">
+    <div class="bike-name">BMC AIR FILTER</div>
+   <button class="buy-now-btn">Buy Now</button>
+</div>
+
+<div class="bike">
+    <img src="PANNIER.jpg" alt="Ducati 848 Evo Corse SE">
+    <div class="bike-name">Side Panniers</div>
+    <button class="buy-now-btn">Buy Now</button>
+</div>
+</section>
+<section class="v4" id="v4">
+  <h1 class="my-heading" style="
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif; 
+    color:white;">Our Premium Bikes</h1>
+    <div class="bikes">
+    <div class="bike" onmouseenter="rotateCard(this)" onmouseleave="rotateCard(this)">
+      <div class="card">
+        <div class="front"><img src="ducati.png" alt="Ducati"></div>
+        <div class="back">Ducati V4 SP</div>
+      </div>
+    </div>
+    <div class="bike" onmouseenter="rotateCard(this)" onmouseleave="rotateCard(this)">
+      <div class="card">
+        <div class="front"><img src="multi.jpg" alt="Multistrada"></div>
+        <div class="back">Multistrada</div>
+      </div>
+    </div>
+    <div class="bike" onmouseenter="rotateCard(this)" onmouseleave="rotateCard(this)">
+      <div class="card">
+        <div class="front"><img src="super.jpg" alt="Superbike"></div>
+        <div class="back">Superleggera V4 </div>
+      </div>
+    </div>
+    <div class="bike" onmouseenter="rotateCard(this)" onmouseleave="rotateCard(this)">
+      <div class="card">
+        <div class="front"><img src="dirt2.jpg" alt="Dirt Bike"></div>
+        <div class="back">DESMO 450MX</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>function rotateCard(element) {
+  element.querySelector('.card').classList.toggle('hover');
+}
+</script>
+<section id="champions" class="champions">
+  <h1 style="font-size: 30px; margin-bottom: 20px; font-family: 'Montserrat', sans-serif; color:white;">
+    <center>CHAMPIONS</center>
+  </h1>
+  <br>
+  <div class="bikers">
+    <div class="racer" onclick="toggleDescription(this)">
+      <img src="caseystoner.jpg" alt="caseystoner">
+      <div class="biker-name">Casey Stoner<br>Casey Stoner is a retired Australian professional motorcycle racer, and a two-time MotoGP World Champion, in 2007 and 2011.</div>
+    </div>
+    <div class="racer" onclick="toggleDescription(this)">
+      <img src="bagania.jpg" alt="bagania">
+      <div class="biker-name">Francesco Bagnaia<br>Francesco Bagnaia is an Italian Grand Prix motorcycle racer, currently competing in the MotoGP World Championship.</div>
+    </div>
+    <div class="racer" onclick="toggleDescription(this)">
+      <img src="andrea.jpg" alt="andrea">
+      <div class="biker-name">Andrea Dovizioso<br>Andrea Dovizioso is an Italian former motorcycle racer and 125cc World Champion. He retired from Grand Prix motorcycle racing at the end of 2020.</div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function toggleDescription(element) {
+    element.classList.toggle('clicked');
+  }
+
+  function scrollLeft() {
+    const container = document.querySelector('.nbikes-container');
+    container.scrollLeft -=200; // Adjust scroll amount as needed
+  }
+
+  function scrollRight() {
+    const container = document.querySelector('.nbikes-container');
+    container.scrollLeft +=200; // Adjust scroll amount as needed
+  }
+
+  function scrollOnMouseMove(event) {
+    const container = document.querySelector('.nbikes-container');
+    const sensitivity = 10; // Adjust sensitivity as needed
+    if (event.clientX < sensitivity) {
+      container.scrollLeft -= 10;
+    } else if (event.clientX > window.innerWidth - sensitivity) {
+      container.scrollLeft += 10;
+    }
+  }
+</script>
+
+<section class="register-id" id="register">
+<h1 style="font-size: 30px; margin-bottom: 20px; font-family: 'Montserrat', sans-serif; color:white;">
+    <center>TRACK DAY EVENT </center>
+  </h1>
+    <div class="image-frame">
+        <img src="budh.jpg" alt="Budh Circuit International">
+    </div>
+    <div class="register-button">
+        <a href="register.html">Register Now</a>
+    </div>
+</section>
+
+
+<div class="homepage" id="about">
+  <h1><CENTER>About US</CENTER></h1>
+ <p>Ducati is an Italian motorcycle manufacturing company headquartered in Bologna, Italy. The company is directly owned by Italian automotive manufacturer Lamborghini, whose German parent company is Audi, itself owned by the Volkswagen Group. Wikipedia
+  Parent organizations: Lamborghini, Audi, Volkswagen Group
+  Owner: Volkswagen Group
+  Founders: Antonio Cavalieri Ducati, Adriano Cavalieri Ducati, Marcello Cavalieri Ducati, Bruno Cavalieri Ducati
+  Founded: 4 July 1926, Bologna, Italy
+  Headquarters: Borgo Panigale, Bologna, Italy</p>
+  <h1>Contact us</h1>
+  <p>
+    E-mail:
+    <a href="mailto:girirajunithin@gmail.com">
+      <span style="text-decoration: none;">✉</span>
+    </a>
+    <a href="mailto:girirajunithin@gmail.com">anandaducatimr@gmail.com</a>
+  </p>
+  <p style="margin-left: -6%;">
+    Call us:
+    <a href="tel:+918989568689">
+      <span style="text-decoration: none;">☎</span>
+    </a>
+    <a href="tel:+918989568689">+91 8989568689</a>
+  </p>
+</div>
+<br><br>
+<script>
+function showContact() {
+  // Hide all sections except the contact section
+  var sections = document.querySelectorAll('section');
+  sections.forEach(function(section) {
+    if (section.id !== 'contact') {
+      section.style.display = 'none';
+    }
+  });
+
+  // Show the contact section
+  document.getElementById('contact').style.display = 'block';
+}
+</script>
+<footer>
+  <p>&copy; <span id="currentYear"></span> All rights reserved | Designed by Nithin G</p>
+</footer>
+
+<script>
+  // JavaScript to set the current year dynamically
+  document.getElementById("currentYear").innerText = new Date().getFullYear();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,210 @@
+<html>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <title>login</title>
+    <style>
+      .login {
+        border: 1px solid black;
+        width: 500px;
+        height: 600px;
+        background: url("ducati.png");
+        color: white;
+        border-radius: 20px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0, 75);
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+        margin: 0 auto;
+        margin-top: 75px;
+      }
+      button {
+        background: rgb(45, 126, 231);
+        height: 40px;
+        border-radius: 40px;
+        line-height: 40px;
+        border: none;
+        margin: 10px 0px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0, 0.3);
+        color: white;
+      }
+      label {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding-left: 10px;
+      }
+
+      form {
+        display: block;
+        box-sizing: border-box;
+        padding: 40px;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: brightness(40%);
+        flex-direction: column;
+        display: flex;
+        gap: 5px;
+      }
+      input {
+        background: rgba(255, 255, 255, 0.3);
+        height: 40px;
+        border-radius: 20px;
+        padding: 0px;
+        border: none;
+        margin-bottom: 20px;
+        color: white;
+      }
+
+      body {
+        background: url("logo.png");
+      }
+      a {
+        color: white;
+      }
+
+      .verificationCheckbox {
+        display: inline;
+        font-size: 5px;
+
+        width: 20px;
+        height: 11px;
+      }
+      .error-message {
+        color: BLACK;
+      }
+      #password {
+        font-size: 18px; /* Adjust font size as needed */
+      }
+      .oneline {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .checkbox-container {
+        margin: 0; /* Remove default margin */
+      }
+
+      .forgot-password-container {
+        margin: 0; /* Remove default margin */
+      }
+    </style>
+    <script>
+      function validateForm() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var checkbox = document.getElementById("verificationCheckbox");
+        var checkboxError = document.getElementById("checkboxError");
+        //check whether the username is empty or not
+        if (username == "") {
+          alert("Username is mandatory");
+          return false;
+        }
+        // Check if password is empty
+        if (password == "") {
+          alert("Password is mandatory");
+          return false;
+        }
+
+        // Check if username is CORRECT
+        if (username !== "NITHIN22") {
+          alert("Username is incorrect");
+          return false;
+        }
+
+        // Check if password is matching
+        if (password !== "12345678") {
+          alert("Password does not matched");
+          return false;
+        }
+
+        // Check if username contains only letters and numbers
+        var usernamePattern = /^[a-zA-Z0-9]+$/;
+        if (!username.match(usernamePattern)) {
+          alert("Username can only contain letters and numbers");
+          return false;
+        }
+
+        // Check if password meets minimum length requirement (e.g., 8 characters)
+        if (password.length < 8) {
+          alert("Password must be at least 8 characters long");
+          return false;
+        }
+        if (!checkbox.checked) {
+          checkboxError.style.display = "block";
+          alert("Please confirm");
+          return false; // Prevent form submission
+        } else {
+          checkboxError.style.display = "none";
+          return true; // Allow form submission
+        }
+        // If all validations pass, return true
+      }
+    </script>
+
+    <script>
+      // Set cursor position in password input box
+      document.addEventListener("DOMContentLoaded", function () {
+        var passwordInput = document.getElementById("password");
+        passwordInput.focus(); // Set focus to password input box
+        passwordInput.setSelectionRange(
+          passwordInput.value.length,
+          passwordInput.value.length
+        ); // Set cursor position to the end
+      });
+    </script>
+    <script>
+      // Set cursor position in username input box
+      document.addEventListener("DOMContentLoaded", function () {
+        var usernameInput = document.getElementById("username");
+        usernameInput.focus(); // Set focus to username input box
+        usernameInput.setSelectionRange(
+          usernameInput.value.length,
+          usernameInput.value.length
+        ); // Set cursor position to the end
+      });
+    </script>
+  </head>
+  <body>
+    <div class="login">
+      <form
+        name="myform"
+        onsubmit="return validateForm()"
+        action="welcome.html"
+        method="post"
+      >
+        <h1>LOGIN</h1>
+        <br />
+        <label for="username">USERNAME:</label>
+        <input type="text" id="username" placeholder="enter your name" /><br />
+        <label for="password">PASSWORD:</label>
+        <input type="password" id="password" placeholder="******" /><br /><br />
+        <div class="oneline">
+          <p class="checkbox-container">
+            <input
+              type="checkbox"
+              id="verificationCheckbox"
+              class="verificationCheckbox"
+            />
+            <label
+              for="verificationCheckbox"
+              class="checkbox-label"
+              style="padding-left: 0px"
+              >Confirm</label
+            >
+          </p>
+          <span id="checkboxError" class="error-message" style="display: none"
+            >Please confirm</span
+          >
+          <p class="forgot-password-container">
+            <a href="forget.html" id="forgotPasswordLink">Forgot Password?</a>
+          </p>
+        </div>
+        <br />
+        <br />
+        <button type="submit" value="SUBMIT">SUBMIT</button>
+      </form>
+    </div>
+  </body>
+</html>
